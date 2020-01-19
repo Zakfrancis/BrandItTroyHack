@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Results</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+		<script src="https://unpkg.com/tlx/browser/tlx.js"></script>
+		<script src="https://unpkg.com/tlx-chart/browser/tlx-chart.js"></script>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+            <!-- Header -->
+            <section id="header">
+                <div class="container">
+                    <!-- Logo -->
+                        <h1 id="logo"><a>Results!</a></h1>
+                </div>
+            </section>
+
+
+			<!-- Features -->
+				<section id="features">
+					<div class="container">
+						<header>
+							<h2>This is what Twitter thinks of <strong>{{hashtagTerm}}</strong></h2>
+						</header>
+						<div class="row aln-center">
+                            <h2><strong>{{resultString}}</strong> with {{percGood}}% positive tweets compared to negative tweets</h2>
+							<div class="col-4 col-6-medium col-12-small">
+                                <h1>This hashtag has {{goodcount}} positive tweets, {{badcount}} negative tweets, and {{neutralcount}} neutral tweets</h1>
+								<div class = "container">
+								<tlx-chart chart-type="PieChart"
+									chart-columns="${['Review','Percentage']}" 
+									chart-data="${[
+										['Positive',({{goodcount}}/100)],
+										['Negative',({{badcount}}/100)],
+										['Neutral',({{neutralcount}}/100)]]}">
+								</tlx-chart>
+								<tlx-chart chart-type="PieChart"
+									chart-columns="${['Review','Percentage']}" 
+									chart-data="${[
+										['Positive',({{percGood}}/100)],
+										['Negative',(1-({{percGood}}/100))]]}">
+								</tlx-chart>
+								</div>
+								<form>
+                                    <input type = "button" value = "Go Back" onclick="history.back()">
+								</form>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Strongly Typed by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+					<div class="container">
+						<!-- Logo -->
+							<h1 id="logo"><a>BrandIt!</a></h1>
+					</div>
+				</section>
+
+			<!-- Features -->
+				<section id="features">
+					<div class="container">
+						<img class="thinkyface" src="/static/images/thinking.png" width="128" height="128">
+						<header>
+							<h2>Do you want to know what twitter thinks of your <strong>BRAND</strong>!?</h2>
+						</header>
+						<div class="row aln-center">
+							<div class="col-4 col-6-medium col-12-small">
+							<div class="form">
+								<form action="{{ url_for('handle_data') }}" method="post">
+									<input type="text" id="brandName" placeholder="" name = "projectFilepath">
+								</form>
+							</div>
+								<!-- Feature Description -->
+									<section>
+										<header>
+											<h3>Okay, so what is this?</h3>
+										</header>
+										<p>This is <strong>BrandIt!</strong> Search through over 100 recent tweets to see how
+										 your brand fares!</p>
+									</section>
+							</div>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/main.js"></script>
+	</body>
+</html>
