@@ -5,6 +5,7 @@ from flask import Flask
 from flask import render_template, request
 
 app = Flask(__name__)
+app.config.from_pyfile('settings.py')
 
 # Function is called when the homepage of the website
 # is accessed by user. It loads the html for the homepage.
